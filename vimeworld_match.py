@@ -5,21 +5,13 @@ colorama.init()
 
 global nicknames
 nicknames = []
-match = input("Введите ID матча: ")
-os.system("cls")
+match = input("Введите ID матча: ") #
+os.system("cls") #Стирает текст
 
-#
-#Работа с файлом
-#
-
-if not os.path.isdir("matches"):
-     os.mkdir("matches")
-match_file = open(match + ".txt", 'w')
-match_file.close()
 
 #Отображение хуйни в консоли
 actualmatch = json.loads(requests.get("https://api.vimeworld.ru/match/" + match).text)
-print(Fore.GREEN, "Игра - ", Fore.WHITE, actualmatch["game"])
+print(Fore.GREEN, "Игра - ", Fore.WHITE, actualmatch["game"]) #Вывод сервера (OS, BWH)
 print(Fore.GREEN, "Карта - ", Fore.WHITE, actualmatch["mapName"])
 print(Fore.GREEN, "Сервер - ", Fore.WHITE, actualmatch["server"])
 print(Fore.GREEN, "Игра - ", Fore.WHITE, "https://vimetop.ru/matches#" + match)
@@ -64,6 +56,5 @@ for rand1 in range(4):
 
 #Конец =)
 print("" * 3) #Пробел
-print(Fore.GREEN, "Нажмите на любую, чтобы перезагрузить программу")
+print(Fore.GREEN, "Нажмите на любую, чтобы закрыть программу")
 input()
-os.system("start vimeworld_match.exe")
